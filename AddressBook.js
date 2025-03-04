@@ -81,6 +81,9 @@ deleteContact(firstName) {
       console.log("Contact not found!");
   }
 }
+countContacts() {
+  return this.contacts.reduce(count => count + 1, 0);
+}
   displayContacts() {
       console.log("Address Book:", this.contacts);
   }
@@ -100,6 +103,8 @@ try {
 
     addressBook.deleteContact("Sanjh") 
     addressBook.displayContacts();
+
+    console.log("Total Contacts:", addressBook.countContacts());
 } catch (error) {
     console.error(error.message);
 }
