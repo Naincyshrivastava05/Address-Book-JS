@@ -1,5 +1,7 @@
 class Contact {
   constructor(firstName, lastName, address, city, state, zip, phone, email) {
+    let nameRegex = /^[A-Z][a-zA-Z]{2,}$/;
+    let addressRegex = /^[A-Za-z0-9\s]{4,}$/;
     let zipRegex = /^\d{6}$/;
     let phoneRegex = /^[7-9]\d{9}$/;
     let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -29,10 +31,34 @@ class Contact {
       this.email = email;
   }
 }
+class AddressBook {
+  constructor() {
+      this.contacts = [];
+  }
 
-try{
-let contact1 = new Contact("Naincy", "Shrivastava", "Trilanga", "Bhopal", "Madhya Pradesh", "402938", "1234753422", "naincyshri0502@example.com");
-console.log("Contact Created:", contact1);
-}catch (error) {
-  console.log(error.message);
+  addContact(contact) {
+      if (contact instanceof Contact) {
+          this.contacts.push(contact);
+          console.log("Contact added successfully!");
+      } else {
+          throw new Error("Invalid Contact!");
+      }
+  }    
+  displayContacts() {
+      console.log("Address Book:", this.contacts);
+  }
+}
+
+
+let addressBook = new AddressBook();
+try {
+    let contact1 = new Contact("Naincy", "Shrivastava", "Trilanga", "Bhopal", "Madhya Pradesh", "402938", "9098059094", "naincyshri0502@example.com");
+    let contact2 = new Contact("Naincy", "Shrivastava", "Trilanga", "Bhopal", "Madhya Pradesh", "402938", "9098059094", "naincyshri0502@example.com");
+
+    addressBook.addContact(contact1);
+    addressBook.addContact(contact2);
+
+    addressBook.displayContacts();
+} catch (error) {
+    console.error(error.message);
 }
