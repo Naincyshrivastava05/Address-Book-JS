@@ -84,6 +84,9 @@ deleteContact(firstName) {
 countContacts() {
   return this.contacts.reduce(count => count + 1, 0);
 }
+searchByCityOrState(city, state) {
+  return this.contacts.filter(c => c.city === city || c.state === state);
+}
   displayContacts() {
       console.log("Address Book:", this.contacts);
   }
@@ -107,6 +110,7 @@ try {
     addressBook.displayContacts();
 
     console.log("Total Contacts:", addressBook.countContacts());
+    console.log("Searching by City Or State",addressBook.searchByCityOrState("Bhopal", "Madhya Pradesh"));
 } catch (error) {
     console.error(error.message);
 }
