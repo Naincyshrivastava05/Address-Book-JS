@@ -99,14 +99,6 @@ viewByCityOrState() {
   console.log("Persons by City:", cityMap);
   console.log("Persons by State:", stateMap);
 }
-sortByName() {
-  this.contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
-}
-  displayContacts() {
-      console.log("Address Book:", this.contacts);
-  }
-
-
 countByCityOrState() {
   let cityCount = {};
   let stateCount = {};
@@ -119,6 +111,23 @@ countByCityOrState() {
   console.log("Count by City:", cityCount);
   console.log("Count by State:", stateCount);
 }
+sortByName() {
+  this.contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+}
+sortByCity() {
+  this.contacts.sort((a, b) => a.city.localeCompare(b.city));
+}
+
+sortByState() {
+  this.contacts.sort((a, b) => a.state.localeCompare(b.state));
+}
+
+sortByZip() {
+  this.contacts.sort((a, b) => a.zip.localeCompare(b.zip));
+}
+  displayContacts() {
+      console.log("Address Book:", this.contacts);
+  }
 }
 
 
@@ -147,6 +156,12 @@ try {
 
     addressBook.sortByName();
     addressBook.displayContacts();
+    addressBook.sortByCity();
+    addressBook.displayContacts();
+    addressBook.sortByState();
+    addressBook.displayContacts();  
+    addressBook.sortByZip();
+    addressBook.displayContacts
 
 } catch (error) {
     console.error(error.message);
